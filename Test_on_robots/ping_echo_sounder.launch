@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="nodelet" type="nodelet" name="ping_depth_nodelet" args="manager" output="screen"/>
+  <node pkg="nodelet" type="nodelet" name="PingDepthNodelet" args="load ping_nodelet/PingDepthNodelet ping_depth_nodelet" output="screen">
+  </node>
+</launch>
