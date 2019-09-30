@@ -5,3 +5,6 @@ Hello everyone, welcome to this repository. This project is mainly on underwater
 1. Introduction
 2. Guide
 3. Results and future improvements
+4. Acknowledgements
+### 1. Introduction
+Nowadays, the AUVs (autonomous underwater vehichles) are widely used in underwater projects. And to make them work smoothly, a great sense of obstacle avoidance is necessary. But because of the more complex underwater light conditions along with the more complicated kinematics situation, it is much harder for them to work well in the water. So we developed a great way to do that, which is the content of our project.
