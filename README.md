@@ -11,4 +11,4 @@ Nowadays, the AUVs (autonomous underwater vehichles) are widely used in underwat
 
 We are using the deep reinforcement neural networks as well as the single beam echo sounder to contorl our robot. In the first part, we implemented a FCRN (fully convolutional residual network) to predict RGBD from the front camera. To train the network, we used the NYU dataset, but firstly `processed all the images from the dataset to make them equip with the features of underwater environment`. In the second part, we applied the DDDQN to control the robot in `"POSHOLD" mode with the topic of "/rc/override"`. We trained this DDDQN in Gazebo world. 
 ### 2. Guide
-
+1. http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat.
