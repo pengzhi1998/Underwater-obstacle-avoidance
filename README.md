@@ -18,4 +18,4 @@ Please follow the guidance to train the neural networks and implement the experi
 2. Download the NYU Depth Dataset V2 Labelled Dataset as well as the pre-trained TensorFlow weights as a .npy file for a part of the model from Laina et al. in to the folder of FCRN_train:
 http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat; http://campar.in.tum.de/files/rupprecht/depthpred/NYU_ResNet-UpProj.npy 
 3. Open the create_underwater.m file, and change three parameters to fit the environment where you would like to test the robots' performance. Then run the code to process the NYU dataset. 
-4. Run train.py to train the FCRN network. After 30-50 epochs, the performance
+4. Run train.py to train the FCRN network. After 30-50 epochs, the performance is relatively good.
