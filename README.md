@@ -6,7 +6,7 @@ Hello everyone, welcome to this repository. This project is mainly about underwa
 2. Guide
 3. Results and future improvements
 4. Acknowledgements
-### 1. Introduction
+### [1. Introduction](https://github.com/2590477658/Underwater-obstacle-avoidance#1-introduction)
 <div align=center><img width="600" height="450" src="https://github.com/2590477658/Underwater-obstacle-avoidance/raw/master/images/Bluerov_in_another_project.JPG" alt="The working Bluerov robot from another project(block assembly)"/></div>
 
 Nowadays, the AUVs (autonomous underwater vehichles) are widely used in underwater projects (underwater environment detection, cultural relic salvage, underwater rescues and etc). And in order to improve their efficiency, a great sense of obstacle avoidance of the robots is indispensable. But because of the rather complex underwater light conditions including light attenuation, dimmer environment, reflection, refraction along with the more complicated kinematics situation including caparicious current and more resistance, it is much harder for the underwater robots to work well in the water. So we developed an ad-hoc methods to deal with that.
