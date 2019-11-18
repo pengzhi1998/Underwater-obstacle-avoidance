@@ -2,14 +2,10 @@
 
 Hello everyone, welcome to this repository. This project is mainly about underwater vehicles' obstacle avoidance with neural networks as well as the method based on the single beam distance detection. The project mainly refers to the following projects:https://github.com/xie9187/Monocular-Obstacle-Avoidance, https://github.com/XPFly1989/FCRN as well as https://github.com/iro-cp/FCRN-DepthPrediction.
 ## contents
-[1. Introduction](https://github.com/2590477658/Underwater-obstacle-avoidance#1-introduction)
-
-[2. Guide](https://github.com/2590477658/Underwater-obstacle-avoidance/blob/master/README.md#2-guide)
-
-3. Results and future improvements
-
-4. Acknowledgements
-
+[1. Introduction](https://github.com/2590477658/Underwater-obstacle-avoidance#1-introduction) 
+[2. Guide](https://github.com/2590477658/Underwater-obstacle-avoidance/blob/master/README.md#2-guide) 
+3. Results and future improvements 
+4. Acknowledgements 
 ### 1. Introduction
 <div align=center><img width="600" height="450" src="https://github.com/2590477658/Underwater-obstacle-avoidance/raw/master/images/Bluerov_in_another_project.JPG" alt="The working Bluerov robot from another project(block assembly)"/></div>
 
