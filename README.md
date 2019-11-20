@@ -17,6 +17,7 @@ Please follow the guidance to train the neural networks and implement the experi
 1. Clone the repository into a directory.
 2. Download the NYU Depth Dataset V2 Labelled Dataset as well as the pre-trained TensorFlow weights as a .npy file for a part of the model from Laina et al. into the folder of FCRN_train:
 http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat; http://campar.in.tum.de/files/rupprecht/depthpred/NYU_ResNet-UpProj.npy 
-3. Open the create_underwater.m file, and change the three parameters (Red_attenuation, Green_attenuation along with Blue_attenuation) to fit the environment where you'd like to test the  performance. Then run it to process the NYU dataset. It will generate a "test.mat" in the same directory.
-4. Run train.py in FCRN_train to train the FCRN network which is for the RGBD prediction. After 30 epochs, the performance is relatively good. The parameters of the model will be stored into the checkpoint.pth.tar.
-5. Launch the designed world with the command `roslaunch turtlebot3_gazebo turtlebot3_house.launch world_file:=/home/pengzhi/example/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds/turtlebot3_bighouse.world`
+3. Open the `create_underwater.m` file, and change the three parameters (Red_attenuation, Green_attenuation along with Blue_attenuation) to fit the environment where you'd like to test the  performance. Then run it to process the NYU dataset. It will generate a "test.mat" in the same directory.
+4. Run `train.py` in FCRN_train to train the FCRN network which is for the RGBD prediction. After 30 epochs, the performance is relatively good. The parameters of the model will be stored into the checkpoint.pth.tar.
+5. Launch the designed world with the command 
+`roslaunch turtlebot3_gazebo turtlebot3_house.launch world_file:=/home/pengzhi/example/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/worlds/turtlebot3_bighouse.world`
