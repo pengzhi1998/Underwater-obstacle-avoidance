@@ -10,7 +10,7 @@ Hello everyone, welcome to this repository. This project is mainly about underwa
 Nowadays, the AUVs (autonomous underwater vehichles) are widely used in underwater projects (underwater environment detection, cultural relic salvage, underwater rescues and etc). And in order to improve their efficiency, a great sense of obstacle avoidance of the robots is indispensable. But because of the rather complex underwater light conditions including light attenuation, dimmer environment, reflection, refraction along with the more complicated kinematics situation including caparicious current and more resistance, it is much harder for the robots to work well underwater. So we developed an ad-hoc methods to deal with that.
 
 In the first part, we implemented a FCRN (fully convolutional residual network) to predict RGBD from the front monocular camera. `To train the network, we used the NYU dataset, the images pairs from which have been preprocessed according to the underwater environment. In the second part, we applied the DDDQN to control the robot in "POSHOLD" mode with the topic of "/rc/override".` We trained this DDDQN in a well-designed Gazebo world. At last, we combined the two neural networks with the method based on the single beam echo sounder to make the robot, BlueROV2 to avoid obstacles:<br>
-Firstly, we set a goal point for the robot, the robot moves toward the point when 
+Firstly, we set a goal point for the robot. It will the robot moves toward the point when 
 ### 2. Guide
 Please follow the guidance to train the neural networks and implement the experiments.
 1. Clone the repository into a directory.
@@ -20,3 +20,4 @@ http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat; h
 4. Run `train.py` in FCRN_train to train the FCRN network which is for the RGBD prediction. After 30 epochs, the performance is relatively good. The parameters of the model will be stored into the checkpoint.pth.tar.
 5. Launch the designed world with the command <br>
 `roslaunch turtlebot3_gazebo turtlebot3_house.launch world_file:=/TO PATH/Underwater-obstacle-avoidance/DDDQN_train/turtlebot3_bighouse.world`
+Run the  `dueling_DQN.py`
