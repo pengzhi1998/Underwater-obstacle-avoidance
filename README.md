@@ -21,6 +21,6 @@ http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat; h
 5. Launch the designed world with the command in one terminal<br>
 `roslaunch turtlebot3_gazebo turtlebot3_house.launch world_file:=/TO PATH/Underwater-obstacle-avoidance/DDDQN_train/turtlebot3_bighouse.world`<br>
 Run the `DDDQN.py` at the same time in another terminal. The training begins. You could find the robot moves aimlessly at first, but starts to show the ability of avoiding the obstacles after around 200 episodes. The average reward for each 50 episodes could be seen from the graph drew by visdom.<br>
-We set the max episode number to be 100000. Nevertheless, if the performance is good enough, it is fine to terminate the process. The networks will be saved into `online_with_noise.pth.tar` as well as `target_with_noise.pth.tar`.
+We set the max episode number to be 100000. Nevertheless, when the performance is good enough, it is fine to terminate the process. The networks will be saved into `online_with_noise.pth.tar` as well as `target_with_noise.pth.tar`.
 6. Copy the `checkpoint.pth.tar` from FCRN_train and `online_with_noise.pth.tar` from DDDQN_train into the folder, Test_on_robots. Then test on the ground robots or underwater robots.<br>
 `ping_echo_sounder.launch` and `pingmessage.py` are helping to open the single beam echo sounder to detect the distance between the robot and the object right in front of the echo sounder.
