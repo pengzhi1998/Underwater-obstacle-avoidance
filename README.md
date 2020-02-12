@@ -22,7 +22,7 @@ http://campar.in.tum.de/files/rupprecht/depthpred/NYU_ResNet-UpProj.npy
 5. To train the DDDQN network, do the following things: <br>
 (1) Move the world file `turtlebot3_bighouse.world` into the turtlebot3_gazebo world file folder of turtlebot3 in your work space. And move the launch file `turtlebot3_bighouse.launch` into the turtlebot3_gazebo launch file folder. Then launch the designed world with the command: <br>
 `roslaunch turtlebot3_gazebo turtlebot3_bighouse.launch` <br>
-(2) Adjust the uri of the turtlebot3 model into your path of the turtlebot3_description. Meanwhile, to make the training in simulation suitable for your robot in the real world, adjust the parameters like `field of view`, `image size` and so forth. <br>
+(2) Adjust the uri of the turtlebot3 model into your path of the turtlebot3_description. Meanwhile, to make the training in simulation suitable for your robot in the real world, adjust the parameters like `field of view`, `image size`, `depth image noise` and so forth. <br>
 (3) Run the `DDDQN.py` at the same time in another terminal. The training begins. You could find the robot moves aimlessly at first, but starts to show the ability of avoiding the obstacles after around 200 episodes. The average reward for each 50 episodes could be seen from the graph drew by visdom.<br>
 We set the max episode number to be 100000. Nevertheless, when the performance is good enough, it is fine to terminate the process. The networks will be saved into `online_with_noise.pth.tar` as well as `target_with_noise.pth.tar`.
 6. Copy the `checkpoint.pth.tar` from FCRN_train and `online_with_noise.pth.tar` from DDDQN_train into the folder, Test_on_robots. Then test on the ground robots or underwater robots.<br>
