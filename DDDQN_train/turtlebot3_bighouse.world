@@ -88,7 +88,7 @@
     </scene>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>1.69351 -8.78938 23.5478 0 1.4738 -2.07458</pose>
+        <pose frame=''>11.5885 -1.65703 22.4753 0 1.4738 -2.07458</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -249,7 +249,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi/example/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_base.stl</uri>
+              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_base.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -264,7 +264,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/pengzhi/example/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/r200.dae</uri>
+              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/r200.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -273,7 +273,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi/example/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/lds.stl</uri>
+              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/lds.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -431,7 +431,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi/example/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
+              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -513,7 +513,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi/example/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
+              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -599,17 +599,17 @@
       <pose frame=''>-3 1 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>705111 407000000</sim_time>
-      <real_time>211292 563896288</real_time>
-      <wall_time>1566271217 117697101</wall_time>
-      <iterations>180029470</iterations>
+      <sim_time>705261 867000000</sim_time>
+      <real_time>50 348800453</real_time>
+      <wall_time>1581512818 918282511</wall_time>
+      <iterations>150460</iterations>
       <model name='Mailbox'>
-        <pose frame=''>-12.2263 -3.99532 0.396255 -2e-06 -1e-06 -0.01378</pose>
+        <pose frame=''>-12.2263 -3.99532 5.6e-05 0 -0.002932 -0.01378</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-12.2263 -3.99532 0.396255 -2e-06 -1e-06 -0.01378</pose>
+          <pose frame=''>-12.2263 -3.99532 5.6e-05 0 -0.002932 -0.01378</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
@@ -783,16 +783,6 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='kinect'>
-        <pose frame=''>12.8806 -1.07821 0.036 -1e-06 0 0</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>12.8806 -1.07821 0.036 -1e-06 0 0</pose>
-          <velocity>-1e-06 -5e-06 0.009774 0.000136 -1.7e-05 -0</velocity>
-          <acceleration>-0.002054 -0.014571 19.5332 0.404746 -0.057098 8e-06</acceleration>
-          <wrench>-0.000205 -0.001457 1.95332 0 -0 0</wrench>
-        </link>
-      </model>
       <model name='pine_tree'>
         <pose frame=''>-10.569 -8.03383 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -824,24 +814,24 @@
         </link>
       </model>
       <model name='turtlebot3'>
-        <pose frame=''>4.84187 -11.9657 -0.001008 -0.003181 -0.000152 -0.057382</pose>
+        <pose frame=''>4.84187 -11.9657 -0.001008 -3e-06 0.003185 -0.05728</pose>
         <scale>1 1 1</scale>
         <link name='base_footprint'>
-          <pose frame=''>4.84187 -11.9657 -0.001008 -0.003181 -0.000152 -0.057382</pose>
-          <velocity>0 0 2.7e-05 0.000127 -3.9e-05 0</velocity>
-          <acceleration>0 0 -0 0 -0 0</acceleration>
-          <wrench>0 0 -0 0 -0 0</wrench>
+          <pose frame=''>4.84187 -11.9657 -0.001008 -3e-06 0.003185 -0.05728</pose>
+          <velocity>0 -0 2.7e-05 -4.5e-05 -0.000125 0</velocity>
+          <acceleration>-0 0 0 -0 -0 -0</acceleration>
+          <wrench>-0 0 0 0 -0 0</wrench>
         </link>
         <link name='wheel_left_link'>
-          <pose frame=''>4.85013 -11.8218 0.031534 -1.60529 1.50158 -0.091794</pose>
-          <velocity>-1e-06 -4e-06 2.2e-05 0.000127 -3.9e-05 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <pose frame=''>4.85022 -11.8219 0.031992 -1.55867 1.50532 -0.045184</pose>
+          <velocity>-4e-06 1e-06 2.2e-05 -4.5e-05 -0.000125 0</velocity>
+          <acceleration>-0 0 -0 -0 -0 -0</acceleration>
+          <wrench>-0 0 -0 0 -0 0</wrench>
         </link>
         <link name='wheel_right_link'>
-          <pose frame=''>4.83361 -12.1093 0.03245 1.69303 1.55123 -3.07676</pose>
-          <velocity>-1e-06 -4e-06 3.3e-05 0.000127 -3.9e-05 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
+          <pose frame=''>4.83373 -12.1094 0.031992 1.53559 1.54825 3.04912</pose>
+          <velocity>-4e-06 1e-06 3.3e-05 -4.5e-05 -0.000125 0</velocity>
+          <acceleration>0 0 0 -0 -0 -0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
@@ -874,40 +864,40 @@
         </link>
       </model>
       <model name='unit_cylinder'>
-        <pose frame=''>2.90044 -3.15225 0.5 0 -0 0</pose>
+        <pose frame=''>2.90044 -3.15225 0.499991 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>2.90044 -3.15225 0.5 0 -0 0</pose>
+          <pose frame=''>2.90044 -3.15225 0.499991 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='unit_cylinder_clone'>
-        <pose frame=''>9.71024 -13.5451 0.5 0 -0 0</pose>
+        <pose frame=''>9.71024 -13.5451 0.499991 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>9.71024 -13.5451 0.5 0 -0 0</pose>
+          <pose frame=''>9.71024 -13.5451 0.499991 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='unit_cylinder_clone_0'>
-        <pose frame=''>-17.5599 -13.6832 0.5 0 -0 0</pose>
+        <pose frame=''>-17.5599 -13.6832 0.499991 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-17.5599 -13.6832 0.5 0 -0 0</pose>
+          <pose frame=''>-17.5599 -13.6832 0.499991 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
       </model>
       <model name='unit_cylinder_clone_1'>
-        <pose frame=''>-17.5973 5.41382 0.5 0 -0 0</pose>
+        <pose frame=''>-17.5973 5.3144 0.499993 4e-06 -4e-06 1e-06</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-17.5973 5.41382 0.5 0 -0 0</pose>
+          <pose frame=''>-17.5973 5.3144 0.499993 4e-06 -4e-06 1e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
@@ -1979,67 +1969,6 @@
         <kinematic>0</kinematic>
       </link>
       <pose frame=''>-9.93683 3.72983 0 0 -0 0</pose>
-    </model>
-    <model name='kinect'>
-      <pose frame=''>6.89965 -1.82803 0.036 0 -0 0</pose>
-      <link name='link'>
-        <inertial>
-          <mass>0.1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <box>
-              <size>0.073 0.276 0.072</size>
-            </box>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://kinect/meshes/kinect.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <sensor name='camera' type='depth'>
-          <update_rate>20</update_rate>
-          <camera name='__default__'>
-            <horizontal_fov>1.0472</horizontal_fov>
-            <image>
-              <width>640</width>
-              <height>480</height>
-              <format>R8G8B8</format>
-            </image>
-            <clip>
-              <near>0.05</near>
-              <far>3</far>
-            </clip>
-          </camera>
-        </sensor>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
     </model>
     <model name='grey_wall_clone'>
       <static>1</static>
