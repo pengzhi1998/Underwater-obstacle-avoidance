@@ -35,7 +35,7 @@ DEPTH_IMAGE_HEIGHT = 128
 RGB_IMAGE_HEIGHT = 228
 RGB_IMAGE_WIDTH = 304
 CHANNEL = 3
-TARGET_UPDATE = 100 # every 100 steps, we need to update the target network with the parameters in online network
+TARGET_UPDATE = 2500 # every 1500 steps, we need to update the target network with the parameters in online network
 H_SIZE = 8*10*64
 IMAGE_HIST = 4
 
@@ -110,7 +110,7 @@ def train():
     rate = rospy.Rate(3)
     # loop_time = time.time()
     # last_loop_time = loop_time # ?
-    fifty_episode_reward = 0
+    ten_episode_reward = 0
     while episode < MAX_EPISODE and not rospy.is_shutdown():
         env.ResetWorld()
 
@@ -134,7 +134,7 @@ def train():
             depth_imgs_t1 = np.append(depth_img_t1, depth_imgs_t1[:(IMAGE_HIST - 1), :, :], axis=0)
             reward_t, terminal, reset, total_reward = env.GetRewardAndTerminate(t)
             if reset == True:
-                fifty_episode_reward += total_reward # to compute the average reward over 50 episodes
+                ten_episode_reward += total_reward # to compute the average reward over 50 episodes
             if t > 0:
                 # depth_imgs_t is the state images for former time, depth_imgs_t1 is the state images for latter time
                 D.append((depth_imgs_t, a_t, reward_t, depth_imgs_t1, terminal))
@@ -237,8 +237,8 @@ def train():
             }, '../../stored_networks/target_with_noise.pth.tar')
 
         print "episode:", episode, ", loss:", loss_sum / t, ", total reward for this episode:", total_reward
-        if (episode + 1) % 50 == 0:
-            average_reward = fifty_episode_reward / 50 # type: int
+        if (episode + 1) % 10 == 0:
+            average_reward = ten_episode_reward / 10 # type: int
             print "the average reward:", average_reward
             viz.line(
                 Y = np.expand_dims(np.array(average_reward), axis = 0),
@@ -246,7 +246,7 @@ def train():
                 win = 'reward',
                 update='append'
             )
-            fifty_episode_reward = 0
+            ten_episode_reward = 0
 
         episode += 1
 
