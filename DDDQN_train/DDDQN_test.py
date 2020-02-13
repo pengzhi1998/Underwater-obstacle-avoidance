@@ -68,7 +68,7 @@ def test():
             t = 0
             while not reset and not rospy.is_shutdown():
                 depth_img_t1 = env.GetDepthImageObservation()
-                print depth_img_t1.max()
+                # print depth_img_t1.max()
                 depth_img_t1 = np.reshape(depth_img_t1, (1, DEPTH_IMAGE_HEIGHT, DEPTH_IMAGE_WIDTH))
                 depth_imgs_t1 = np.append(depth_img_t1, depth_imgs_t1[:(IMAGE_HIST - 1), :, :], axis=0)
                 reward_t, terminal, reset, total_reward = env.GetRewardAndTerminate(t)
@@ -76,7 +76,7 @@ def test():
                 depth_imgs_t1_cuda = torch.from_numpy(depth_imgs_t1_cuda)
                 depth_imgs_t1_cuda = Variable(depth_imgs_t1_cuda.type(dtype))
                 Q_value_list = test_net(depth_imgs_t1_cuda)
-                print Q_value_list
+                # print Q_value_list, reset
                 Q_value_list = Q_value_list[0]
                 Q_value, action = torch.max(Q_value_list, 0)
                 env.Control(action)

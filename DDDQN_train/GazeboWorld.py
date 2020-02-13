@@ -312,24 +312,12 @@ class GazeboWorld():
 		# print 'max:', np.amax(cv_img), 'min:', np.amin(cv_img)
 		# cv_img[cv_img > 5.] = -1.
 
-		# # inpainting
-		# mask = copy.deepcopy(cv_img)
-		# mask[mask == 0.] = 1.
-		# mask[mask != 1.] = 0.
-		# mask = np.uint8(mask)
-		# cv_img = cv2.inpaint(np.uint8(cv_img), mask, 3, cv2.INPAINT_TELEA)
-
 		# guassian noise
-		gauss = np.random.normal(0., 0.5, dim)
+		gauss = np.random.normal(0., 0.15, dim)
 		gauss = gauss.reshape(dim[1], dim[0])
 		cv_img = np.array(cv_img, dtype=np.float32)
 		cv_img = cv_img + gauss
 		cv_img[cv_img<0.4] = 0.
-
-		# # smoothing
-		# kernel = np.ones((4,4),np.float32)/16
-		# cv_img = cv2.filter2D(cv_img,-1,kernel)
-
 
 		cv_img = np.array(cv_img, dtype=np.float32)
 		# cv_img*=(10./255.)
@@ -511,9 +499,10 @@ class GazeboWorld():
 
 		Distance = np.amin(Laser)
 		Angle = np.abs(np.argmin(Laser) - 90)
+
 		if 0.9 < Distance < 1.2:
 			reward = (- 2.4 + 2 * Distance) * (180 - Angle) / 135
-		if self.GetBump() or Distance < 0.9 or Distance == 30.:
+		if self.GetBump() or Distance < 0.9:
 			reward = (-8.0) * ((((180. - Angle) / 135. - 1.) * 3. / 8.) + 1.)
 			terminate = True
 			reset = True
