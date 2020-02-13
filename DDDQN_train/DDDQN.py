@@ -3,6 +3,7 @@ import torch.nn as nn
 import numpy as np
 from GazeboWorld import GazeboWorld
 import rospy
+import os
 import time
 import random
 import matplotlib.pyplot as plt
@@ -37,7 +38,6 @@ CHANNEL = 3
 TARGET_UPDATE = 100 # every 100 steps, we need to update the target network with the parameters in online network
 H_SIZE = 8*10*64
 IMAGE_HIST = 4
-
 
 class DDDQN(nn.Module):
     def __init__(self):
@@ -81,16 +81,14 @@ def train():
 
     online_net = DDDQN()
     target_net = DDDQN()
-    # online_net.load_state_dict(torch.load('params_online.pkl'))
-    # target_net.load_state_dict(torch.load('params_target.pkl'))
 
-    resume_file_online = 'online_with_noise.pth.tar'
-    checkpoint_online = torch.load(resume_file_online)
-    online_net.load_state_dict(checkpoint_online['state_dict'])
-    resume_file_target = 'target_with_noise.pth.tar'
-    checkpoint_target = torch.load(resume_file_target)
-    target_net.load_state_dict(checkpoint_target['state_dict'])
-
+    if os.path.isfile('../../stored_networks/online_with_noise.pth.tar') and os.path.isfile('../../stored_networks/target_with_noise.pth.tar'):
+        resume_file_online = '../../stored_networks/online_with_noise.pth.tar'
+        checkpoint_online = torch.load(resume_file_online)
+        online_net.load_state_dict(checkpoint_online['state_dict'])
+        resume_file_target = '../../stored_networks/target_with_noise.pth.tar'
+        checkpoint_target = torch.load(resume_file_target)
+        target_net.load_state_dict(checkpoint_target['state_dict'])
 
     online_net = online_net.cuda()
     target_net = target_net.cuda()
@@ -228,7 +226,7 @@ def train():
                 'state_dict': online_net.state_dict(),
                 'optimizer': optimizer.state_dict(),
                 'epsilon': episode
-            }, 'online_with_noise.pth.tar')
+            }, '../../stored_networks/online_with_noise.pth.tar')
             learning_rate = learning_rate * 0.96
         if (episode + 51) % 150 == 0:
             torch.save({
@@ -236,7 +234,7 @@ def train():
                 'state_dict': online_net.state_dict(),
                 'optimizer': optimizer.state_dict(),
                 'epsilon': episode
-            }, 'target_with_noise.pth.tar')
+            }, '../../stored_networks/target_with_noise.pth.tar')
 
         print "episode:", episode, ", loss:", loss_sum / t, ", total reward for this episode:", total_reward
         if (episode + 1) % 50 == 0:

@@ -49,7 +49,7 @@ class DDDQN(nn.Module):
         return x
 
 test_net = DDDQN()
-resume_file = 'online_with_noise.pth.tar'
+resume_file = '../../stored_networks/online_with_noise.pth.tar'
 checkpoint = torch.load(resume_file)
 test_net.load_state_dict(checkpoint['state_dict'])
 test_net.cuda()
@@ -66,7 +66,7 @@ def test():
             testing_loss = 0
             reset = False
             t = 0
-            while not rospy.is_shutdown():
+            while not reset and not rospy.is_shutdown():
                 depth_img_t1 = env.GetDepthImageObservation()
                 print depth_img_t1.max()
                 depth_img_t1 = np.reshape(depth_img_t1, (1, DEPTH_IMAGE_HEIGHT, DEPTH_IMAGE_WIDTH))
