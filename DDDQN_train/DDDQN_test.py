@@ -66,7 +66,7 @@ def test():
             testing_loss = 0
             reset = False
             t = 0
-            while not reset and not rospy.is_shutdown():
+            while not rospy.is_shutdown():
                 depth_img_t1 = env.GetDepthImageObservation()
                 # print depth_img_t1.max()
                 depth_img_t1 = np.reshape(depth_img_t1, (1, DEPTH_IMAGE_HEIGHT, DEPTH_IMAGE_WIDTH))
