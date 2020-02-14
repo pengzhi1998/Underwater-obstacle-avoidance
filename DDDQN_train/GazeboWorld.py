@@ -313,7 +313,7 @@ class GazeboWorld():
 		# cv_img[cv_img > 5.] = -1.
 
 		# guassian noise
-		gauss = np.random.normal(0., 0.1, dim)
+		gauss = np.random.normal(0., 0.15, dim)
 		gauss = gauss.reshape(dim[1], dim[0])
 		cv_img = np.array(cv_img, dtype=np.float32)
 		cv_img = cv_img + gauss
