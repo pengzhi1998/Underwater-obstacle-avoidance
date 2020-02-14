@@ -35,7 +35,7 @@ DEPTH_IMAGE_HEIGHT = 128
 RGB_IMAGE_HEIGHT = 228
 RGB_IMAGE_WIDTH = 304
 CHANNEL = 3
-TARGET_UPDATE = 100 # every 1500 steps, we need to update the target network with the parameters in online network
+TARGET_UPDATE = 2500 # every 1500 steps, we need to update the target network with the parameters in online network
 H_SIZE = 8*10*64
 IMAGE_HIST = 4
 
