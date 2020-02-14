@@ -26,7 +26,7 @@ OBSERVE = 10. # timesteps to observe before training
 EXPLORE = 20000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.001 # final value of epsilon
 INITIAL_EPSILON = .5 # starting value of epsilon
-REPLAY_MEMORY = 28000 # number of previous transitions to remember
+REPLAY_MEMORY = 13500 # number of previous transitions to remember
 BATCH = 8 # size of minibatch
 MAX_EPISODE = 50000
 MAX_T = 200
@@ -35,7 +35,7 @@ DEPTH_IMAGE_HEIGHT = 128
 RGB_IMAGE_HEIGHT = 228
 RGB_IMAGE_WIDTH = 304
 CHANNEL = 3
-TARGET_UPDATE = 2500 # every 1500 steps, we need to update the target network with the parameters in online network
+TARGET_UPDATE = 100 # every 1500 steps, we need to update the target network with the parameters in online network
 H_SIZE = 8*10*64
 IMAGE_HIST = 4
 
@@ -144,6 +144,7 @@ def train():
             depth_imgs_t1_cuda = depth_imgs_t1[np.newaxis, :]
             depth_imgs_t1_cuda = torch.from_numpy(depth_imgs_t1_cuda)
             depth_imgs_t1_cuda = Variable(depth_imgs_t1_cuda.type(dtype))
+            print D.__len__()
 
             a = online_net(depth_imgs_t1_cuda) # the shape of a is [1, 11] which has two dimensions, so we need a[0] to have a dimensionality reduction
             # readout_t = a[0].cpu().detach().numpy()
