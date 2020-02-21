@@ -249,7 +249,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_base.stl</uri>
+              <uri>/opt/data/private/ypz/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/bases/waffle_base.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -264,7 +264,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/r200.dae</uri>
+              <uri>/opt/data/private/ypz/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/r200.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -273,7 +273,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/lds.stl</uri>
+              <uri>/opt/data/private/ypz/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/sensors/lds.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -431,7 +431,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
+              <uri>/opt/data/private/ypz/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/left_tire.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -513,7 +513,7 @@
           <geometry>
             <mesh>
               <scale>0.001 0.001 0.001</scale>
-              <uri>/home/pengzhi1998/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
+              <uri>/opt/data/private/ypz/catkin_ws/src/turtlebot3/turtlebot3_description/meshes/wheels/right_tire.stl</uri>
             </mesh>
           </geometry>
           <material>

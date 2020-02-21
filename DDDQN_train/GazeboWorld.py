@@ -472,27 +472,7 @@ class GazeboWorld():
 		terminate = False
 		reset = False
 		[v, theta, Eular] = self.GetSelfOdomeInfo()
-		#reward on the distance from current position to the goal
-		# reward = distance * 0.05 - 0.4
-		# reward on the angular of whether the robot is running toward the goal
-		# if self.self_position_y > self.state2_goal_y and Eular < 0:
-		# 	if ((self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x)) > 0:
-		# 		if 0.9 * np.tan(Eular) < (self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x) < 1.1 * np.tan(Eular):
-		# 			reward += 0.2
-		# 	else:
-		# 		if 1.1 * np.tan(Eular) < (self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x) < 0.9 * np.tan(Eular):
-		# 			reward += 0.2
-		# elif self.self_position_y < self.state2_goal_y and Eular > 0:
-		# 	if ((self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x)) > 0:
-		# 		if 0.9 * np.tan(Eular) < (self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x) < 1.1 * np.tan(Eular):
-		# 			reward += 0.2
-		# 	else:
-		# 		if 1.1 * np.tan(Eular) < (self.state2_goal_y - self.self_position_y) / (self.state2_goal_x - self.self_position_x) < 0.9 * np.tan(Eular):
-		# 			reward += 0.2
-
-		reward = v * np.cos(1.05 * theta) * 0.355 - 0.009
-		# compute the value of laser scan
-		laser = self.GetLaserObservation() # laser[0] is the front and laser[180] is the rear
+		laser = self.GetLaserObservation()  # laser[0] is the front and laser[180] is the rear
 		Laser = []
 		for i in range(-90, 90):
 			Laser = np.append(Laser, laser[i])
@@ -500,21 +480,34 @@ class GazeboWorld():
 		Distance = np.amin(Laser)
 		Angle = np.abs(np.argmin(Laser) - 90)
 
+		# initial reward function:
+		# reward = v * np.cos(theta) * 0.2 - 0.01
+		#
+		# if self.GetBump() or np.amin(laser) < 0.9:
+		# 	reward = -10.
+		# 	terminate = True
+		# 	reset = True
+		# if t > 500:
+		# 	reset = True
+		#   print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
+
+		# improved reward function:
+		reward = v * np.cos(1.05 * theta) * 0.355 - 0.009
+		# compute the value of laser scan
+
 		if 0.9 < Distance < 1.2:
 			reward = (- 2.4 + 2 * Distance) * (180 - Angle) / 135
 		if self.GetBump() or Distance < 0.9:
 			reward = (-8.0) * ((((180. - Angle) / 135. - 1.) * 3. / 8.) + 1.)
 			terminate = True
 			reset = True
-		# if -6.5 < self.self_position_y < -5.5 and 0 < self.self_position_x < -1:
-		# if -3.5 < self.self_position_y < -2.5 and 3.5 < self.self_position_x < 4.5:
-		# 	reward += 25
-		# 	terminate = True
-		# 	reset = True
+
 		self.total_reward = self.total_reward + reward
 		total_reward = self.total_reward
 		if t > 500:
 			reset = True
 			print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
 
-		return reward, terminate, reset, total_reward
+		if
+
+		return reward, terminate, reset, total_reward, evaluation_index
