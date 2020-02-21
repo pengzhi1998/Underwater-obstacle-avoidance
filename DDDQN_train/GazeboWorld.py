@@ -508,6 +508,9 @@ class GazeboWorld():
 			reset = True
 			print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
 
-		if
+		if Distance < 0.9:
+			evaluation_index = -10
+		else:
+			evaluation_index = v * np.cos(theta) * 0.2 - 0.01
 
 		return reward, terminate, reset, total_reward, evaluation_index
