@@ -437,7 +437,7 @@ class GazeboWorld():
 
 
 	def ResetWorld(self):
-		self.total_reward = 0
+		self.total_evaluation = 0
 		self.SetObjectPose() # reset robot
 		# for x in xrange(len(self.object_name)):
 		# 	self.SetObjectPose(self.object_name[x]) # reset target
@@ -502,8 +502,6 @@ class GazeboWorld():
 			terminate = True
 			reset = True
 
-		self.total_reward = self.total_reward + reward
-		total_reward = self.total_reward
 		if t > 500:
 			reset = True
 			print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
@@ -513,4 +511,7 @@ class GazeboWorld():
 		else:
 			evaluation_index = v * np.cos(theta) * 0.2 - 0.01
 
-		return reward, terminate, reset, total_reward, evaluation_index
+		self.total_evaluation = self.total_evaluation + evaluation_index
+		total_evaluation = self.total_evaluation
+
+		return reward, terminate, reset, total_evaluation

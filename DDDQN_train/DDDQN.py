@@ -26,9 +26,9 @@ OBSERVE = 10. # timesteps to observe before training
 EXPLORE = 20000. # frames over which to anneal epsilon
 FINAL_EPSILON = 0.001 # final value of epsilon
 INITIAL_EPSILON = .5 # starting value of epsilon
-REPLAY_MEMORY = 13500 # number of previous transitions to remember
+REPLAY_MEMORY = 60000 # number of previous transitions to remember
 BATCH = 8 # size of minibatch
-MAX_EPISODE = 50000
+MAX_EPISODE = 2000
 MAX_T = 200
 DEPTH_IMAGE_WIDTH = 160
 DEPTH_IMAGE_HEIGHT = 128
@@ -110,7 +110,7 @@ def train():
     rate = rospy.Rate(3)
     # loop_time = time.time()
     # last_loop_time = loop_time # ?
-    ten_episode_reward = 0
+    ten_episode_evaluation = 0
     while episode < MAX_EPISODE and not rospy.is_shutdown():
         env.ResetWorld()
 
@@ -132,9 +132,9 @@ def train():
             depth_img_t1 = env.GetDepthImageObservation()
             depth_img_t1 = np.reshape(depth_img_t1, (1, DEPTH_IMAGE_HEIGHT, DEPTH_IMAGE_WIDTH))
             depth_imgs_t1 = np.append(depth_img_t1, depth_imgs_t1[:(IMAGE_HIST - 1), :, :], axis=0)
-            reward_t, terminal, reset, total_reward = env.GetRewardAndTerminate(t)
+            reward_t, terminal, reset, total_evaluation = env.GetRewardAndTerminate(t)
             if reset == True:
-                ten_episode_reward += total_reward # to compute the average reward over 50 episodes
+                ten_episode_evaluation += total_evaluation # to compute the average reward over 50 episodes
             if t > 0:
                 # depth_imgs_t is the state images for former time, depth_imgs_t1 is the state images for latter time
                 D.append((depth_imgs_t, a_t, reward_t, depth_imgs_t1, terminal))
@@ -144,7 +144,6 @@ def train():
             depth_imgs_t1_cuda = depth_imgs_t1[np.newaxis, :]
             depth_imgs_t1_cuda = torch.from_numpy(depth_imgs_t1_cuda)
             depth_imgs_t1_cuda = Variable(depth_imgs_t1_cuda.type(dtype))
-            print D.__len__()
 
             a = online_net(depth_imgs_t1_cuda) # the shape of a is [1, 11] which has two dimensions, so we need a[0] to have a dimensionality reduction
             # readout_t = a[0].cpu().detach().numpy()
@@ -211,6 +210,7 @@ def train():
             if (Step + 1) % TARGET_UPDATE == 0:
                 target_net.load_state_dict(online_net.state_dict())
             Step += 1
+            print "episode:", episode, "\nStep:", Step
 
             r_epi = r_epi + reward_t
             t += 1
@@ -237,17 +237,18 @@ def train():
                 'epsilon': episode
             }, '../../stored_networks/target_with_noise.pth.tar')
 
-        print "episode:", episode, ", loss:", loss_sum / t, ", total reward for this episode:", total_reward
+        print "episode:", episode, ", loss:", loss_sum / t, ", total reward for this episode:", total_evaluation
+
         if (episode + 1) % 10 == 0:
-            average_reward = ten_episode_reward / 10 # type: int
-            print "the average reward:", average_reward
+            average_evaluation = ten_episode_evaluation / 10 # type: int
+            print "the average reward evaluation:", average_evaluation
             viz.line(
-                Y = np.expand_dims(np.array(average_reward), axis = 0),
+                Y = np.expand_dims(np.array(average_evaluation), axis = 0),
                 X = np.expand_dims(np.array(episode), axis = 0),
                 win = 'reward',
                 update='append'
             )
-            ten_episode_reward = 0
+            ten_episode_evaluation = 0
 
         episode += 1
 
