@@ -249,6 +249,11 @@ def train():
                 update='append'
             )
             ten_episode_evaluation = 0
+            my_open = open("../../data/data.txt", "a")
+            data = [str(episode), str(average_evaluation), "\n"]
+            for element in data:
+                my_open.write(element)
+            my_open.close()
 
         episode += 1
 
