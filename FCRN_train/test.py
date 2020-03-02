@@ -11,10 +11,10 @@ import flow_transforms
 import torchvision.transforms as transforms
 import cv2
 import copy
-save_path = "predict/"
+save_path = "../../images/"
 #nyu = h5py.File('nyu_depth_v2_labeled.mat')
 # data_path = 'nyu_depth_v2_labeled.mat'
-data_path = 'test.mat'
+data_path = '../../dataset/test.mat'
 dtype = torch.cuda.FloatTensor
 
 batch_size = 1

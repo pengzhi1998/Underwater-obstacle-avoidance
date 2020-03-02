@@ -19,7 +19,8 @@ depth_net.cuda()
 # img = cv2.imread("299902454.png") * 2
 img = cv2.imread("./test_images/599.png")
 print img.shape
-img = cv2.resize(img, (640, 480), interpolation=cv2.INTER_AREA)
+img = cv2.resize(img, (640, 480), interpolation=cv2.INTER_NEAREST)
+img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 # img = cv2.imread("rgb_depth.png")
 # img[:, :, 2] = img[:, :, 2] * 0.2
 # img[:, :, 1] = img[:, :, 1] * 0.85

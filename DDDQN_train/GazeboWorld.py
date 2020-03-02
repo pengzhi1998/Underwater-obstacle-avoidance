@@ -489,7 +489,7 @@ class GazeboWorld():
 		# 	reset = True
 		# if t > 500:
 		# 	reset = True
-		#   print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
+		# 	print "SUCCESS!!!!!!!!!!!!!!!!!!!!!!!"
 
 		# improved reward function:
 		reward = v * np.cos(1.05 * theta) * 0.355 - 0.009
