@@ -1,6 +1,10 @@
 # Underwater-obstacle-avoidance
 
-Hello everyone, welcome to this repository. This project is mainly about underwater vehicles' obstacle avoidance with neural networks as well as the method based on the single beam distance detection. The project mainly refers to the following projects:https://github.com/xie9187/Monocular-Obstacle-Avoidance, https://github.com/XPFly1989/FCRN as well as https://github.com/iro-cp/FCRN-DepthPrediction.
+Hello everyone, welcome to this repository. This project is mainly about underwater vehicles' obstacle avoidance with neural networks as well as the method based on the single beam distance detection. The project mainly refers to the following projects:[Monocular-Obstacle-Avoidance](https://github.com/xie9187/Monocular-Obstacle-Avoidance), [FCRN
+](https://github.com/XPFly1989/FCRN) as well as [FCRN-DepthPrediction
+](https://github.com/iro-cp/FCRN-DepthPrediction).
+
+To find the version of code containing both underwater obstacle avoidance and navigation, please refer to my [Robotics_Navigation](https://github.com/pengzhi1998/Robotics_Navigation.git) project!
 ## contents
    1. [Introduction](https://github.com/2590477658/Underwater-obstacle-avoidance#1-introduction)
    2. [ Guide](https://github.com/2590477658/Underwater-obstacle-avoidance/blob/master/README.md#2-guide)  
